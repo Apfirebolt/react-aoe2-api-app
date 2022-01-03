@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import UnitContext from '../context/units/unitContext';
+import UnitComponent from '../components/units/UnitDetail';
 
 const UnitsPage = () => {
   const unitContext = useContext(UnitContext);
@@ -16,7 +17,7 @@ const UnitsPage = () => {
         <div className="column col-12 justify-center mt-3">
           <p>Unit Page</p>
           {units.map(unit => (
-            <p key={unit.id}>{unit.name}</p>
+            <UnitComponent key={unit.id} unit={unit} />
           ))}
         </div>
       </div>

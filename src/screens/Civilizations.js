@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useContext } from "react";
 import CivilizationContext from '../context/civilizations/civilizationContext';
+import CivilizationComponent from '../components/civilizations/CivilizationDetail';
+import { civilizationData } from '../data/civilizations';
 
 const CivilizationPage = () => {
   const civilizationContext = useContext(CivilizationContext);
@@ -15,8 +17,8 @@ const CivilizationPage = () => {
       <div className="columns">
         <div className="column col-12 justify-center mt-3">
           <p>Civilization Page</p>
-          {civilizations.map(civilization => (
-            <p key={civilization.id}>{civilization.name}</p>
+          {civilizationData.map(civilization => (
+            <CivilizationComponent key={civilization.id} civilization={civilization} />
           ))}
         </div>
       </div>

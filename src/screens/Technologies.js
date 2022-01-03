@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import TechnologyContext from '../context/technologies/technologyContext';
+import TechnologyComponent from '../components/technologies/TechnologyDetail';
 
 const TechnologyPage = () => {
   const technologyContext = useContext(TechnologyContext);
@@ -16,7 +17,7 @@ const TechnologyPage = () => {
         <div className="column col-12 justify-center mt-3">
           <p>Technology Page</p>
           {technologies.map(technology => (
-            <p key={technology.id}>{technology.name}</p>
+            <TechnologyComponent key={technology.id} technology={technology} />
           ))}
         </div>
       </div>
