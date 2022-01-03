@@ -37,12 +37,12 @@ const UnitState = props => {
     setLoading();
 
     const res = await axios.get(
-      `https://api.github.com/users/`
+      `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/units`
     );
 
     dispatch({
       type: GET_UNITS,
-      payload: res.data
+      payload: res.data.units
     });
   };
 

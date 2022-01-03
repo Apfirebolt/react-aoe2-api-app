@@ -37,12 +37,12 @@ const TechnologyState = props => {
     setLoading();
 
     const res = await axios.get(
-      `https://api.github.com/users/`
+      `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/technologies`
     );
 
     dispatch({
       type: GET_TECHNOLOGIES,
-      payload: res.data
+      payload: res.data.technologies
     });
   };
 
@@ -55,8 +55,8 @@ const TechnologyState = props => {
   return (
     <TechnologyContext.Provider
       value={{
-        technologies: state.units,
-        technology: state.unit,
+        technologies: state.technologies,
+        technology: state.technology,
         loading: state.loading,
         clearTechnologies,
         getTechnology,
