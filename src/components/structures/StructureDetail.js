@@ -43,8 +43,8 @@ const StructureDetail = (props) => {
             </AccordionSummary>
             <AccordionDetails>
               {structure.special &&
-                structure.special.map((item, index) => {
-                  return <Typography key={index}>{item} - {index}</Typography>;
+                structure.special.map((item) => {
+                  return <Typography key={item}>{item}</Typography>;
                 })}
             </AccordionDetails>
           </Accordion>

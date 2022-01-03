@@ -1,6 +1,9 @@
 import React, { Fragment, useEffect, useContext } from "react";
 import CivilizationContext from '../context/civilizations/civilizationContext';
 import CivilizationComponent from '../components/civilizations/CivilizationDetail';
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+
 import { civilizationData } from '../data/civilizations';
 
 const CivilizationPage = () => {
@@ -14,14 +17,13 @@ const CivilizationPage = () => {
 
   return (
     <Fragment>
-      <div className="columns">
-        <div className="column col-12 justify-center mt-3">
-          <p>Civilization Page</p>
-          {civilizationData.map(civilization => (
+      <Container maxWidth="lg">
+        <Box sx={{ bgcolor: "#cfe8fc", height: "auto", padding: "1rem" }}>
+        {civilizationData.map(civilization => (
             <CivilizationComponent key={civilization.id} civilization={civilization} />
           ))}
-        </div>
-      </div>
+        </Box>
+      </Container>
     </Fragment>
   );
 };
