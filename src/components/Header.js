@@ -9,19 +9,16 @@ const HeaderComponent = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/people">People</Link>
+          <Link to="/civilizations">Civilizations</Link>
         </li>
         <li>
-          <Link to="/planets">Planets</Link>
+          <Link to="/units">Units</Link>
         </li>
         <li>
-          <Link to="/ships">Star Ships</Link>
+          <Link to="/technologies">Technologies</Link>
         </li>
         <li>
-          <Link to="/vehicles">Vehicles</Link>
-        </li>
-        <li>
-          <Link to="/films">Films</Link>
+          <Link to="/structures">Structures</Link>
         </li>
       </ul>
     </nav>
