@@ -58,7 +58,7 @@ const UnitsPage = () => {
 
   return (
     <Container maxWidth="lg">
-      <Box sx={{ bgcolor: "#cfe8fc", height: "100vh" }}>
+      <Box sx={{ bgcolor: "#cfe8fc", height: "auto" }}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead>

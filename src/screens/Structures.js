@@ -1,6 +1,10 @@
 import React, { Fragment, useContext, useEffect } from "react";
-import StructureContext from '../context/structures/structureContext';
-import StructureComponent from '../components/structures/StructureDetail';
+import StructureContext from "../context/structures/structureContext";
+import StructureComponent from "../components/structures/StructureDetail";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+
+import { structureData } from "../data/structures";
 
 const StructuresPage = () => {
   const structureContext = useContext(StructureContext);
@@ -13,14 +17,13 @@ const StructuresPage = () => {
 
   return (
     <Fragment>
-      <div className="columns">
-        <div className="column col-12 justify-center mt-3">
-          <p>Structures Page</p>
-          {structures.map(structure => (
+      <Container maxWidth="lg">
+        <Box sx={{ bgcolor: "#cfe8fc", height: "auto", padding: "1rem" }}>
+          {structureData.map((structure) => (
             <StructureComponent key={structure.id} structure={structure} />
           ))}
-        </div>
-      </div>
+        </Box>
+      </Container>
     </Fragment>
   );
 };
