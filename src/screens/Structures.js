@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import StructureContext from "../context/structures/structureContext";
 import StructureComponent from "../components/structures/StructureDetail";
+import SectionHeader from '../components/SectionHeader';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
@@ -18,6 +19,7 @@ const StructuresPage = () => {
   return (
     <Fragment>
       <Container maxWidth="lg">
+      <SectionHeader heading="Structures" />
         <Box sx={{ bgcolor: "#cfe8fc", height: "auto", padding: "1rem" }}>
           {structureData.map((structure) => (
             <StructureComponent key={structure.id} structure={structure} />

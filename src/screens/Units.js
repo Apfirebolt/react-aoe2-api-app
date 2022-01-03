@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import SectionHeader from '../components/SectionHeader';
 
 import { styled } from "@mui/material/styles";
 import { purple } from '@mui/material/colors';
@@ -59,6 +60,7 @@ const UnitsPage = () => {
   return (
     <Container maxWidth="lg">
       <Box sx={{ bgcolor: "#cfe8fc", height: "auto" }}>
+        <SectionHeader heading="Units" /> 
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead>
