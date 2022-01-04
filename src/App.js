@@ -7,6 +7,7 @@ import StructuresPage from "./screens/Structures";
 import CivilizationsPage from "./screens/Civilizations";
 import TechnologiesPage from "./screens/Technologies";
 import UnitsPage from "./screens/Units";
+import OneUnitPage from "./screens/OneUnit";
 
 import CivilizationState from "./context/civilizations/civilizationState";
 import StructureState from "./context/structures/structureState";
@@ -26,7 +27,8 @@ function App() {
                 <Route path="/structures" element={<StructuresPage />} />
                 <Route path="/civilizations" element={<CivilizationsPage />} />
                 <Route path="/technologies" element={<TechnologiesPage />} />
-                <Route path="/units" element={<UnitsPage />} />
+                <Route path="/units/:unitName" element={<OneUnitPage />} exact />
+                <Route path="/units/" element={<UnitsPage />} exact />
               </Routes>
               <Footer />
             </Router>

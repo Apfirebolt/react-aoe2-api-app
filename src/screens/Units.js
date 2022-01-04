@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import SectionHeader from '../components/SectionHeader';
@@ -50,12 +52,16 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 const UnitsPage = () => {
   const unitContext = useContext(UnitContext);
-
+  let navigate = useNavigate();
   const { getUnits, units } = unitContext;
 
   useEffect(() => {
     getUnits();
   }, []);
+
+  const navigateToDetail = (unitName) => {
+    navigate('/units/' + unitName.toLowerCase().split(' ').join('-'));
+  }
 
   return (
     <Container maxWidth="lg">
@@ -96,7 +102,7 @@ const UnitsPage = () => {
                   </StyledTableCell>
                   <StyledTableCell align="right">{row.armor}</StyledTableCell>
                   <StyledTableCell component="th" scope="row" align="right" color="success">
-                    <ColorButton>Details</ColorButton>
+                    <ColorButton onClick={() => navigateToDetail(row.name)}>Details</ColorButton>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
