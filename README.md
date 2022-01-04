@@ -39,6 +39,24 @@ npm start
 
 Deployment scripts to be added through Docker, Heroku and Netlify.
 
+## Heroku Deployment
+
+Heroku is probably the easiest of the methods available to make your app available to the public. It might not be the best method for production ready apps, but would be more than suffice for testing purpose.
+
+So, the requirements then. You must have a Heroku account and certain free space available in case you're using free version.
+
+1. From your Heroku Web Dashboard (https://dashboard.heroku.com/apps) click on "New" to create a new app, give a name to the app which should be unique in Heroku universe.
+2. Navigate to the 'Deploy' tab and choose "Github".
+3. Create a repo on Github and push all your React app code in it.
+4. Just below the Deployment section, you'd find option to connect your app from Github to the current Heroku app. You can do so by simply searching for your app which must be on your Github account.
+5. Choose a branch to deploy, optionally you can also setup a pipeline which would automatically deploy if a given branch is modified on Github. Do not click on 'Deploy' yet, there is one thing still to do.
+6. We forget one important step, that is to add a build pack which would deploy React apps on Heroku. Heroku does have build packs for Python, Ruby but not something by default which could deploy your react app.
+7. Go to 'Settings' tab, choose build-packs and add this 'https://github.com/mars/create-react-app-buildpack'
+8. Go back to step 5 and click 'Deploy'.
+9. You'd see logs for your on-going build, in case it is a success you'd see the link of your app at the bottom once the build
+process is executed successfully.
+10. For instance, my app link is https://react-aoe2-app.herokuapp.com/technologies, that is it. Your app is live now on Heroku.
+
 ## Project Screenshots
 
 Please find some of the screenshots of the application. Below is the screenshot of the Homepage.
