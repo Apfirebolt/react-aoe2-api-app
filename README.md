@@ -57,6 +57,19 @@ So, the requirements then. You must have a Heroku account and certain free space
 process is executed successfully.
 10. For instance, my app link is https://react-aoe2-app.herokuapp.com/technologies, that is it. Your app is live now on Heroku.
 
+## Docker Deployment
+
+This app can also be deployed in production using Docker containers assisted through Nginx servers serving the build files.
+
+1. Setup your Docker and Nginx files within the project directory.
+2. Create a Docker image
+3. Spawn a container from the image created on port 80
+
+```
+sudo docker build . --tag=react-aoe2
+sudo docker run -d -p 80:80 react-aoe2
+```
+
 ## Project Screenshots
 
 Please find some of the screenshots of the application. Below is the screenshot of the Homepage.
