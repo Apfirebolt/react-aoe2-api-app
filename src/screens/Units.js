@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import SectionHeader from '../components/SectionHeader';
+import SectionHeader from "../components/SectionHeader";
+import LoaderComponent from "../components/Loader";
 
 import { styled } from "@mui/material/styles";
-import { purple } from '@mui/material/colors';
+import { purple } from "@mui/material/colors";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
@@ -43,29 +44,30 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(purple[100]),
   backgroundColor: purple[100],
-  '&:hover': {
+  "&:hover": {
     backgroundColor: purple[700],
-    color: 'white'
+    color: "white",
   },
 }));
 
 const UnitsPage = () => {
   const unitContext = useContext(UnitContext);
   let navigate = useNavigate();
-  const { getUnits, units } = unitContext;
+  const { getUnits, units, loading } = unitContext;
 
   useEffect(() => {
     getUnits();
   }, []);
 
-  const navigateToDetail = (unitName) => {
-    navigate('/units/' + unitName.toLowerCase().split(' ').join('-'));
-  }
+  const navigateToDetail = (unitId) => {
+    navigate("/unit/" + unitId);
+  };
 
   return (
     <Container maxWidth="lg">
+      {loading && <LoaderComponent />}
       <Box sx={{ bgcolor: "#cfe8fc", height: "auto" }}>
-        <SectionHeader heading="Units" /> 
+        <SectionHeader heading="Units" />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead>
@@ -100,8 +102,15 @@ const UnitsPage = () => {
                     {row.build_time}
                   </StyledTableCell>
                   <StyledTableCell align="right">{row.armor}</StyledTableCell>
-                  <StyledTableCell component="th" scope="row" align="right" color="success">
-                    <ColorButton onClick={() => navigateToDetail(row.name)}>Details</ColorButton>
+                  <StyledTableCell
+                    component="th"
+                    scope="row"
+                    align="right"
+                    color="success"
+                  >
+                    <ColorButton onClick={() => navigateToDetail(row.id)}>
+                      Details
+                    </ColorButton>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

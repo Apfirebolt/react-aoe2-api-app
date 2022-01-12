@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import UnitContext from "../context/units/unitContext";
 import { useParams } from "react-router-dom";
+import LoaderComponent from '../components/Loader';
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -9,18 +11,16 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-import { unitData } from "../data/units";
-
 const steps = ["Basic Unit Info", "Description", "Bonus"];
 
 const SingleUnitPage = () => {
-  const { unitName } = useParams();
+  const { unitId } = useParams();
+  const unitContext = useContext(UnitContext);
+  const { unit, getUnit, loading } = unitContext;
 
-  const selectedUnit = unitData.find(
-    (item) =>
-      item.name.toLowerCase().split(" ").join("-") ===
-      unitName.toLowerCase().split(" ").join("-")
-  );
+  useEffect(() => {
+    getUnit(unitId);
+  }, []);
 
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -69,6 +69,9 @@ const SingleUnitPage = () => {
 
   return (
     <Container maxWidth="lg">
+      {loading && (
+        <LoaderComponent />
+      )}
       <Box sx={{ width: "100%", margin: "1rem auto" }}>
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
@@ -104,9 +107,9 @@ const SingleUnitPage = () => {
             {activeStep === 0 && (
               <Box sx={{ py: 2 }}>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  {selectedUnit.name}
+                  {unit.name}
                 </Typography>
-                {Object.entries(selectedUnit.cost).map(([key, value]) => {
+                {/* {Object.entries(unit.cost).map(([key, value]) => {
                   return (
                     <Typography
                       sx={{ my: 1.5 }}
@@ -116,44 +119,44 @@ const SingleUnitPage = () => {
                       {key} - {value}
                     </Typography>
                   );
-                })}
+                })} */}
               </Box>
             )}
             {activeStep === 1 && (
               <Box sx={{ py: 2 }}>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Description - {selectedUnit.description}
+                  Description - {unit.description}
                 </Typography>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Age - {selectedUnit.age}
+                  Age - {unit.age}
                 </Typography>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Expansion - {selectedUnit.expansion}
+                  Expansion - {unit.expansion}
                 </Typography>
               </Box>
             )}
             {activeStep === 2 && (
               <Box sx={{ py: 2 }}>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Build Time - {selectedUnit.build_time}
+                  Build Time - {unit.build_time}
                 </Typography>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Reload Time - {selectedUnit.reload_time}
+                  Reload Time - {unit.reload_time}
                 </Typography>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Movement Rate - {selectedUnit.movement_rate}
+                  Movement Rate - {unit.movement_rate}
                 </Typography>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Line of Sight - {selectedUnit.line_of_sight}
+                  Line of Sight - {unit.line_of_sight}
                 </Typography>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Hit Points - {selectedUnit.hit_points}
+                  Hit Points - {unit.hit_points}
                 </Typography>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Attack - {selectedUnit.attack}
+                  Attack - {unit.attack}
                 </Typography>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Armor - {selectedUnit.armor}
+                  Armor - {unit.armor}
                 </Typography>
               </Box>
             )}

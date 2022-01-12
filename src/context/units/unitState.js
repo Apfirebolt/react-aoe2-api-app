@@ -23,7 +23,7 @@ const UnitState = props => {
     setLoading();
 
     const res = await axios.get(
-      `unit/${id}`
+      `${id}`
     );
 
     dispatch({

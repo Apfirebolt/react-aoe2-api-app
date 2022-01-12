@@ -27,7 +27,7 @@ function App() {
                 <Route path="/structures" element={<StructuresPage />} />
                 <Route path="/civilizations" element={<CivilizationsPage />} />
                 <Route path="/technologies" element={<TechnologiesPage />} />
-                <Route path="/units/:unitName" element={<OneUnitPage />} exact />
+                <Route path="/unit/:unitId" element={<OneUnitPage />} exact />
                 <Route path="/units/" element={<UnitsPage />} exact />
               </Routes>
               <Footer />
