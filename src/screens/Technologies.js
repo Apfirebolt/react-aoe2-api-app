@@ -5,9 +5,6 @@ import SectionHeader from '../components/SectionHeader';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
-
-import { technologyData } from "../data/technologies";
-
 const TechnologyPage = () => {
   const technologyContext = useContext(TechnologyContext);
 
@@ -22,7 +19,7 @@ const TechnologyPage = () => {
       <Container maxWidth="lg">
         <SectionHeader heading="Technologies" />
         <Box sx={{ bgcolor: "#cfe8fc", height: "auto", padding: "1rem" }}>
-          {technologyData.map((technology) => (
+          {technologies.map((technology) => (
             <TechnologyComponent key={technology.id} technology={technology} />
           ))}
         </Box>

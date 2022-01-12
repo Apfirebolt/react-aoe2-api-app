@@ -19,11 +19,11 @@ const UnitState = props => {
   const [state, dispatch] = useReducer(UnitReducer, initialState);
 
   // Get Unit
-  const getUnit = async () => {
+  const getUnit = async (id) => {
     setLoading();
 
     const res = await axios.get(
-      `https://api.github.com/users/`
+      `unit/${id}`
     );
 
     dispatch({
@@ -37,7 +37,7 @@ const UnitState = props => {
     setLoading();
 
     const res = await axios.get(
-      `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/units`
+      `units`
     );
 
     dispatch({

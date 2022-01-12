@@ -5,8 +5,6 @@ import SectionHeader from '../components/SectionHeader';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
-import { civilizationData } from '../data/civilizations';
-
 const CivilizationPage = () => {
   const civilizationContext = useContext(CivilizationContext);
 
@@ -22,7 +20,7 @@ const CivilizationPage = () => {
         <SectionHeader heading="Civilizations" /> 
         <Box sx={{ bgcolor: "#cfe8fc", height: "auto", padding: "1rem" }}>
         
-        {civilizationData.map(civilization => (
+        {civilizations.map(civilization => (
             <CivilizationComponent key={civilization.id} civilization={civilization} />
           ))}
         </Box>

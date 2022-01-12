@@ -5,8 +5,6 @@ import SectionHeader from '../components/SectionHeader';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
-import { structureData } from "../data/structures";
-
 const StructuresPage = () => {
   const structureContext = useContext(StructureContext);
 
@@ -21,7 +19,7 @@ const StructuresPage = () => {
       <Container maxWidth="lg">
       <SectionHeader heading="Structures" />
         <Box sx={{ bgcolor: "#cfe8fc", height: "auto", padding: "1rem" }}>
-          {structureData.map((structure) => (
+          {structures.map((structure) => (
             <StructureComponent key={structure.id} structure={structure} />
           ))}
         </Box>

@@ -2,7 +2,7 @@
   "name": "react-aoe2-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "https://age-of-empires-2-api.herokuapp.com/api/v1/",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",

@@ -17,7 +17,6 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 
 import UnitContext from "../context/units/unitContext";
-import { unitData } from "../data/units";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -83,7 +82,7 @@ const UnitsPage = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {unitData.map((row) => (
+              {units.map((row) => (
                 <StyledTableRow key={row.id}>
                   <StyledTableCell align="right">{row.name}</StyledTableCell>
                   <StyledTableCell align="right">

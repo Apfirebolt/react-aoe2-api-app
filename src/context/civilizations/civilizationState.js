@@ -37,7 +37,7 @@ const CivilizationState = props => {
     setLoading();
 
     const res = await axios.get(
-      `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations`
+      `civilizations`
     );
 
     dispatch({
