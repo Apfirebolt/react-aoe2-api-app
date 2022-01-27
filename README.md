@@ -1,3 +1,6 @@
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
+
 # Age of Empires 2 - Web application with API integration ⚡️
 
 ## Project Briefing
@@ -37,7 +40,8 @@ npm start
 
 ## Future Updates
 
-Deployment scripts to be added through Docker, Heroku and Netlify.
+- Deployment scripts to be added through Docker, Heroku and Netlify.
+- Search bar to be added for searching civilizations, units and more.
 
 ## Heroku Deployment
 
