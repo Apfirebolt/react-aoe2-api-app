@@ -7,6 +7,8 @@
 
 This is a simple database application which integrates with Age of Empires 2 API and lists various entities available in the game like units, civilizations, structures and technologies.
 
+Update : The API is no longer hosted so this application won't be working anymore.
+
 Made with ❤️ by **[@apfirebolt](https://github.com/Apfirebolt/)**
 
 Please find me [here](https://apgiiit.com/)

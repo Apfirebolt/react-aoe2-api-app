@@ -21,7 +21,7 @@ const TechnologyState = props => {
     setLoading();
 
     const res = await axios.get(
-      `technologies`
+      `https://age-of-empires-2-api.herokuapp.com/api/v1/technologies`
     );
 
     dispatch({
